@@ -14,6 +14,9 @@ bool isPrime(int num)  {
     return true;
 }
 
+
+/////*the constructor are in the hpp*////
+
 //container get elem at index funaction
 // int MagicalContainer::getElementAt(int index)const{
 //     if(index < 0 || size() <=index){
@@ -68,6 +71,7 @@ void MagicalContainer::addElement(int element) {
                 this->primesPointer.push_back(&this->conElements[(vector<int>::size_type)i]);
     }
 }
+
 
 
 
