@@ -97,20 +97,18 @@ MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::end() {
 }
 MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator=(SideCrossIterator const &other) {
     //first we need to make shure we place a diffrent iterator
-    if(&this->cont != &other.cont){throw runtime_error("WORNG");}
+    if(&this->cont != &other.cont || this != &other){throw runtime_error("WORNG PLACEMENT");}
 
     //now we just need place each atribute
-    if (this != &other) {
-        cont = other.cont;
-        index = other.index;
-    }
+    cont = other.cont; index = other.index;
     return *this;
+
 }
 MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator++() {
     //first we need to check if we can increase
     if(*this == this->end()){throw runtime_error("ALREADY AT SIZE");}
     
-    //if we wre "in the middle" end equals to start we can just put size beacuse we at the end of the iterator since its cross side
+    //if we wre "in the middle" end equals to start we can just put size beacuse we at the end of the iterator since its cross side and also un even
     if (startI == endI){index = this->cont.size();}
 
     //else we are still in the crossing and we have more to go
@@ -153,10 +151,10 @@ MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::end() {
 }
 MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator=(AscendingIterator const &other) {
     //first we need to make shure we place a diffrent iterator
-    if(&this->contr != &other.contr){throw runtime_error("WORNG");}
+    if(&this->contr != &other.contr || this != &other){throw runtime_error("WORNG PLACEMENT");}
 
     //now we just need place each atribute
-    if (this != &other) {contr = other.contr; index = other.index;}
+    contr = other.contr; index = other.index;
     return *this;
 }
 MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator++() {
@@ -191,16 +189,16 @@ MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::end() {
 }
 MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator=(PrimeIterator const &other) {
     //first we need to make shure we place a diffrent iterator
-    if(&this->cont != &other.cont){throw runtime_error("WORNG");}
+    if(&this->cont != &other.cont || this != &other){throw runtime_error("WORNG PLACEMENT");}
 
     //now we just need place each atribute
-    if (this != &other) {cont = other.cont; index = other.index;}
+    cont = other.cont; index = other.index;
     return *this;
 }
 MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator++() {
     //first we need to check if we can increase
     if(*this == this->end()){throw runtime_error("ALREADY AT SIZE");}
-    this->index++; return  *this;
+    index++; return  *this;
 }
 
 
