@@ -6,43 +6,23 @@ namespace ariel{
 class MagicalContainer {
     private:
         vector<int> conElements;
-        vector<int*> primePointer;
+        vector<int*> primesPointer;
         
     public:
 
         //default from the internet and class
         MagicalContainer() = default;
         ~MagicalContainer() = default;
+
         void addElement(int element);
         void removeElement(int element);
         int size() const;
 
-        class AscendingIterator {
-            private:
-                MagicalContainer& contr;
-                int index;
-
-            public:
-                //like default constractors ish. help from the internet
-                AscendingIterator(MagicalContainer& cont) : contr(cont), index(0) {}
-                AscendingIterator(const AscendingIterator& other) : contr(other.contr), index(other.index) {}
-                ~AscendingIterator() = default;
-                
-                AscendingIterator& operator=(const AscendingIterator& other);
-                AscendingIterator& operator++();
-                AscendingIterator begin();
-                AscendingIterator end();
-
-                bool operator==(const AscendingIterator& other) const;
-                bool operator!=(const AscendingIterator& other) const;
-                bool operator>(const AscendingIterator& other) const;
-                bool operator<(const AscendingIterator& other) const;
-                bool operator>=(const AscendingIterator& other) const;
-                bool operator<=(const AscendingIterator& other) const;
-
-                int operator*() const;
-
-        };
+        /* i was not shure if we need to do a get elem at index
+           because we have find funaction i will leave it at "note mode"
+        */ 
+        //int getElementAt(int index)const;
+        
         
         class SideCrossIterator {
             private:
@@ -72,6 +52,36 @@ class MagicalContainer {
                 int operator*() const;
             
         };
+
+
+
+        class AscendingIterator {
+            private:
+                MagicalContainer& contr;
+                int index;
+
+            public:
+                //like default constractors ish. help from the internet
+                AscendingIterator(MagicalContainer& cont) : contr(cont), index(0) {}
+                AscendingIterator(const AscendingIterator& other) : contr(other.contr), index(other.index) {}
+                ~AscendingIterator() = default;
+                
+                AscendingIterator& operator=(const AscendingIterator& other);
+                AscendingIterator& operator++();
+                AscendingIterator begin();
+                AscendingIterator end();
+
+                bool operator==(const AscendingIterator& other) const;
+                bool operator!=(const AscendingIterator& other) const;
+                bool operator>(const AscendingIterator& other) const;
+                bool operator<(const AscendingIterator& other) const;
+                bool operator>=(const AscendingIterator& other) const;
+                bool operator<=(const AscendingIterator& other) const;
+
+                int operator*() const;
+
+        };
+        
 
         class PrimeIterator {
             private:
