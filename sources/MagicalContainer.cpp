@@ -175,6 +175,7 @@ bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other) cons
 bool MagicalContainer::PrimeIterator::operator>=(const PrimeIterator& other) const {return (*this > other) || (*this == other);}
 bool MagicalContainer::PrimeIterator::operator<=(const PrimeIterator& other) const {return (*this < other) || (*this == other);}
 
+
 //PrimeIterator begin and end funactions.
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin() {return PrimeIterator(cont);}
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::end() {

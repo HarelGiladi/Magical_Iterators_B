@@ -83,6 +83,7 @@ class MagicalContainer {
         };
         
 
+
         class PrimeIterator {
             private:
                 MagicalContainer& cont;
